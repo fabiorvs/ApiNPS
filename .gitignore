@@ -1,0 +1,31 @@
+# Ignorar arquivos e pastas específicas
+node_modules/
+.env
+dbconfig.json
+
+# Ignorar arquivos gerados automaticamente
+*.log
+*.json
+*.sqlite
+
+# Arquivos de desenvolvimento
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Arquivos temporários
+*.tmp
+*.temp
+
+# Arquivos e pastas de IDEs ou editores de texto
+.vscode/
+.idea/
+*.sublime-*
+*.swo
+*.swp
+
+# Ignorar arquivos de configuração de banco de dados
+config/db.json
+config/db.sqlite
+config/db.log
