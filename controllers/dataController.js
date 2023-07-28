@@ -1,4 +1,3 @@
-// controllers/dataController.js
 const User = require("../models/userModel");
 const db = require("../config/db");
 const { v4: uuidv4 } = require("uuid"); // Importa a função para gerar UUID v4

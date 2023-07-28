@@ -1,7 +1,7 @@
-// controllers/authController.js
+require('dotenv').config();
 const jwt = require("jsonwebtoken");
 const bcrypt = require("bcrypt");
-const secretKey = "NPS2023"; // Chave secreta para assinar e verificar o token JWT
+const secretKey = process.env.SECRET_KEY
 const User = require("../models/userModel");
 
 class AuthController {

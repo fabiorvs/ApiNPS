@@ -22,11 +22,13 @@ npm install
 ```
 Crie um arquivo `.env` na raiz do projeto com as seguintes informações:
 
+```
 DB_HOST=seu-host-do-banco-de-dados
 DB_USER=seu-usuario-do-banco-de-dados
 DB_PASS=sua-senha-do-banco-de-dados
 DB_NAME=nome-do-banco-de-dados
 SECRET_KEY=sua-chave-secreta-para-o-jwt
+```
 
 Execute a aplicação
 ```bash

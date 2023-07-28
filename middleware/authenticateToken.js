@@ -1,6 +1,7 @@
 // middleware/authenticateToken.js
+require('dotenv').config();
 const jwt = require("jsonwebtoken");
-const secretKey = "NPS2023"; // Chave secreta usada para verificar o token JWT
+const secretKey = process.env.SECRET_KEY
 
 function authenticateToken(req, res, next) {
   const token = req.headers.authorization;
