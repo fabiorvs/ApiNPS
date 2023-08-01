@@ -25,14 +25,20 @@ const authenticateToken = require("../middleware/authenticateToken");
  *           schema:
  *             type: object
  *             properties:
- *               score:
- *                 type: number
- *               visual:
- *                 type: number
- *               recursos:
- *                 type: number
- *               experiencia:
- *                 type: number
+ *               pergunta1:
+ *                 type: string
+ *               pergunta2:
+ *                 type: string
+ *               pergunta3:
+ *                 type: string
+ *               pergunta4:
+ *                 type: string
+ *               pergunta5:
+ *                 type: string
+ *               pergunta6:
+ *                 type: string
+ *               pergunta7:
+ *                 type: string
  *               curso:
  *                 type: string
  *               usuario:
@@ -53,7 +59,6 @@ const authenticateToken = require("../middleware/authenticateToken");
  *         description: Erro interno do servidor.
  */
 router.post("/save", authenticateToken, DataController.saveData);
-
 
 router.get("/consultar-dados", authenticateToken, DataController.getData);
 
@@ -84,10 +89,6 @@ router.get("/consultar-dados", authenticateToken, DataController.getData);
  *       500:
  *         description: Erro interno do servidor.
  */
-router.post(
-  "/uuid",
-  authenticateToken,
-  DataController.getDataByUuid
-);
+router.post("/uuid", authenticateToken, DataController.getDataByUuid);
 
 module.exports = router;

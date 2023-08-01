@@ -4,7 +4,17 @@ const { v4: uuidv4 } = require("uuid"); // Importa a função para gerar UUID v4
 
 class DataController {
   static saveData(req, res) {
-    const { score, visual, recursos, experiencia, curso, usuario } = req.body;
+    const {
+      pergunta1,
+      pergunta2,
+      pergunta3,
+      pergunta4,
+      pergunta5,
+      pergunta6,
+      pergunta7,
+      curso,
+      usuario,
+    } = req.body;
     const userId = req.user.id;
 
     const uuid = uuidv4(); // Gera um UUID v4 único
@@ -12,9 +22,21 @@ class DataController {
     // Aqui você deve inserir os dados na base de dados MySQL, incluindo o UUID
     // Exemplo de consulta SQL (utilizando a biblioteca mysql2/promise):
     const sql =
-      "INSERT INTO respostas (uuid, score, visual, recursos, experiencia, curso, usuario, user_id) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
+      "INSERT INTO respostas (uuid, pergunta1, pergunta2, pergunta3, pergunta4, pergunta5, pergunta6, pergunta7, curso, usuario , user_id) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ? , ? , ?)";
     db.promise()
-      .execute(sql, [uuid, score, visual, recursos, experiencia, curso, usuario, userId])
+      .execute(sql, [
+        uuid,
+        pergunta1,
+        pergunta2,
+        pergunta3,
+        pergunta4,
+        pergunta5,
+        pergunta6,
+        pergunta7,
+        curso,
+        usuario,
+        userId,
+      ])
       .then(() => {
         // Após salvar, consultar os dados recém-inseridos
         const selectSql =
@@ -38,7 +60,7 @@ class DataController {
     // Aqui você deve realizar a consulta na base de dados MySQL para obter os dados salvos pelo usuário
     // Exemplo de consulta SQL (utilizando a biblioteca mysql2/promise):
     const sql =
-      "SELECT uuid, score, visual, recursos, experiencia FROM respostas WHERE user_id = ?";
+      "SELECT uuid, pergunta1, pergunta2, pergunta3, pergunta4, pergunta5, pergunta6, pergunta7, curso, usuario FROM respostas WHERE user_id = ?";
     db.promise()
       .execute(sql, [userId])
       .then(([rows]) => {
@@ -55,7 +77,7 @@ class DataController {
     const { uuid } = req.body;
 
     const sql =
-      "SELECT uuid, score, visual, recursos, experiencia, curso, usuario FROM respostas WHERE uuid = ?";
+      "SELECT uuid, pergunta1, pergunta2, pergunta3, pergunta4, pergunta5, pergunta6, pergunta7, curso, usuario FROM respostas WHERE uuid = ?";
     db.promise()
       .execute(sql, [uuid])
       .then(([rows]) => {
